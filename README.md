@@ -1,0 +1,42 @@
+Projekt końcowy z Programowania aplikacji internetowych 
+Karolina Czapla 
+Kierunek: Informatyka
+Grupa 5.2
+
+Strona internetowa konwersacje Columbica  
+Celem strony jest umożliwienie umówienia się na spotkania online - konwersacje w języku obcym.
+Strona internetowa jest zarówno dla administratora strony jak i użytkownika.
+W katalogu projektu znajdują się dwa pliki index.php - każdy z nich zawiera osobną funkcjonalność
+dla administratora i użytkownika. 
+Strona internetowa została utworzona za pomocą szablonu Smarty. Dzięki Smarty całkowicie oddzieliłam
+warstwę prezentacji aplikacji i zgodnie ze wzorcem MVC w pełni odseparowałam ją od reszty aplikacji.
+Smarty jest umieszczone lokalnie w katalogu projektu. Smarty do działania potrzebuje katalogów:
+templates - przechowuje szablony podstron, templates_c - skompilowane szablony, cache, configs.
+W folderze templates znajdują się pliki .tpl w których znajduje się odseparowany kod html.
+W pliku index.php są skonfigurowane katalogi dla smarty, dla których może zmienić się scieżka.
+
+Została utworzona baza danych - plik conversations.sql (folder baza)
+Baza posiada 5 tabel :
+student - przechowuje dane studentów
+teacher - przechowje dane native-spekarow
+room - przechowuje dane zoom-room
+meeting - przechowuje dane o spotkaniu - odwoluje sie do tabel student, teacher i room
+Stworzony jest związek między tabelami teacher i student, w razie usunięcia danych
+(np.usuniecie nauczyciela do ktorego są umowione spotkania).
+admin - przechowuje dane admina
+
+Dane logowania dla administratora zostały wygenerowane raz, ponieważ haslo w bazie powinno być zaszyfrowane.
+Ręcznie wygenrowałam haslo za pomocą kweredy echo password_hash("admin",PASSWORD_ARGON21) i wkeiłam do bazy.
+Dane do logowania dla administatora:
+login:admin
+haslo:admin
+Przykładowe do logowania dla użytkownika:
+email:karolinaczapla10@wp.pl	
+haslo:Karolina1
+
+Wersja Smarty:4.1.1
+Wersja PHP:8.1.10
+
+Aby uruchomic folder projektu powinien znajdować się w folderze xampp/htdocs
+Powienien być uruchomiony Apache
+ścieżka:http://localhost/projektphp/
